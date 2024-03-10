@@ -22,8 +22,8 @@ I also want to make this specification as easy and human possible being able to 
 # Specifications
 
 - [Todo specs](specs/todo.md)
-- [Directory and references](specs/directory%structure%and%references.md)
-- [datetime and datetime functions format](specs/datetime%and%datetimes%functions%format.md)
+- [Directory and references](specs/directory_structure_and_references.md)
+- [datetime and datetime functions format](specs/datetime_and_datetimes_functions_format.md)
 
 # Feedback and roadmap
 
