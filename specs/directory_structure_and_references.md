@@ -2,9 +2,10 @@ first of all the top directory should be marked as a noblivion directory putting
 
 the '.noblivion' file will contain the options and preferences for any client that use this specification. the file should be a TOML file. each client should be in its own namespace.
 
-the 'core' namespace is reserved for future standar option or preferences.
+the 'core' namespace is reserved for future standard option or preferences.
 
 # files for todos
+
 a file behave as a collection of todo, but it should end with the '.tds' extension that stand for *T*o*D*o*S* you can also create those file inside of subdirectories recursively.
 
 # references

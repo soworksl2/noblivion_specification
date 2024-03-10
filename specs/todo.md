@@ -1,4 +1,4 @@
-The todo item is a bunch of components some required and others no, that are separated by at least 1 blank spaces. e.g.
+The todo item is a collection of components, some required and others optional, separated by at least 1 blank space. e.g.
 
 ```
 [component] [component];
@@ -34,11 +34,11 @@ or
 };
 ```
 
-notice that the content inside the children block no need to be indented.
+notice that the content inside the children block does not need to be indented.
 
 # The Todo Label
 
-The Todo label should be embraced with the '#' symbol and a space between the symbol and the label. e.g.
+The Todo label should be embraced with the '#' symbol. e.g.
 
 ```
 [data] [data] [data] # this is the label of my todo # [data] [data];
@@ -66,7 +66,7 @@ if the Todo item does not have an x at start it will be interpreted as not compl
 
 the problem with this method is that all the Todo Items will be unordered if edited manually. and the incompleted Todo would be merged with the completed ones.
 
-the second method comes to fix that. and it consists of split the file with at least 3 '-' or more. the top part represent uncompleted Todos items and the bot part the completed ones. e.g.
+the second method comes to fix that. and it consists in spliting the file with at least 3 '-' or more. the top part represent uncompleted Todos items and the bottom part the completed ones. e.g.
 
 ```
 # a todo not completed yet #;
@@ -140,7 +140,7 @@ NOTE: this component should be eliminated of the specification because the label
 
 # tags and properties
 
-a tag or properties are like the metadata of the todo item it should be inside '(' and ')' and have a key, an optional value specifier and an optional value.
+a tag or properties are like the metadata of the todo item, it should be inside '(' and ')' and have a key, an optional value specifier and an optional value.
 
 the key is any alphanumeric and '\_' combination that does not start with '\_'. the value specifier can be one of ('=', =#, =:, =;) and the value depends on the value specifier. e.g.
 
@@ -159,7 +159,7 @@ inside the parenthesis you can specify multiples tags and values separated by co
 #play some games# (rest) (priority=#2);
 ```
 
-if the same tags appears in the same todo item the last one override the first, from left to right, if the last does not have value and the first does the value of the first is deleted.
+if the same tags appears in the same todo item the last one override the first, from left to right, if the last does not have value and the first does, the value of the first is deleted.
 
 this rule is broken for some built-in tags that will be covered later. in those cases instead of override the last value will be appended to the first one. if the last one does not have a value then all values will be deleted. the separator is ';'. e.g.
 
@@ -188,6 +188,8 @@ the '=;' means datetime function it can handle multiples datetime functions or s
 ```
 
 see datetimes and datetimes functions format in this specification.
+
+technically, all the values are considered text, but the value specifier indicates with what format parse the values.
 
 ## Built-in tags
 

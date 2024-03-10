@@ -4,7 +4,7 @@ datetimes has the following formats:
 
 first of all the structure ever will be (year-month-day hour:minutes:seconds [PM | AM]). but there are a lot of variations.
 
-the year ever should be written comple, the month and day can or not contain a starting '0'. e.g.
+the year ever should be written complete, the month and day can or not contain a starting '0'. e.g.
 
 ```
 2024-7-5
@@ -18,7 +18,7 @@ the hour will be ever 24 hour format unless that 'AM' or 'PM' is specified at th
 01:05 PM
 ```
 
-the case does not matter in 'PM' or 'AM'. and trailing '0's are not mandatory.
+'PM' or 'AM' is case insensitive. and trailing '0's are not mandatory.
 
 in a datetime if a time is not present it will be implicitly '00:00:00'. At least for now it does not have a timezone. so, it will ever be in the local time zone.
 
@@ -58,7 +58,7 @@ it has 3 parts each one separated with a ':', they are:
 
 the start part and the stop part are simple datetimes and follows the same rules specified above.
 
-if the start is not specified it will be the \_cre tag if stop is not specified it will be the last possible value for the part that was not specified part. for example if you do not specify a stop at all, it will be until the end, if you do not specify the hour it will be 23, so on.
+if the start is not specified it will be the \_cre tag if stop is not specified it will be the last possible value for the part that was not specified. for example if you do not specify a stop at all, it will be until the end, if you do not specify the hour it will be 23, so on.
 
 the step part is a spantime that are written with a number and a time specifier. they are.
 
@@ -79,8 +79,8 @@ wf -> friday
 wsa -> saturday
 wsu -> sunday
 
-fm -> the next first day of month. if already in the first day of the month or later, go to the first day of the next month.
-lm -> the last day of the month. equals to fm
+fm -> the next first day of month.
+lm -> the last day of the month.
 
 jan -> first day of month of january
 feb -> first day of month of february
@@ -95,13 +95,13 @@ oct -> first day of month of october
 nov -> first day of month of november
 dec -> first day of month of december
 
-they should be specified as the end of the step.
-
-you can imagine the step as a finger moving the steps specified and marking the datetime. when there are no more steps specified it start moving with the specified steps again from the start until the stop is reached.
+you can imagine the step as a finger moving the steps specified starting from start and marking the datetime where it stop over. when there are no more steps specified it start moving with the specified steps again from the start until the stop is reached.
 
 a '.' at the end of a time specifier can be interpreted as only move the finger but do not mark anything.
 
-a ',' at the end can be interpreted as move the finger and mark the datetime under the finger but then return to the position you was before.
+a '!' at the end of a time specifier can be interpreted as move the finger and mark the datetime under the finger but then return to the position you was before.
+
+a '?' at the end of a time specifier is interpreted as 'if you are already in the datetime specifier that you wanna move to, you simple keep there' example if you use '1wf' and the finger is already in friday it will move to the next friday, '1wf?' will keep there and '2wf?' will act the same as '1wf'. this can be specified together with '.' or '!'
 
 some examples using datetime functions:
 
@@ -110,7 +110,7 @@ some examples using datetime functions:
 :2m:        //each two months
 :1wsa1wsu:  //each saturday and sundays.
 :1wsu1wsa:  //each saturday and sunday, but the first saturday will be ignored.
-:1m1wsa,:   //each month in saturday
+:1m1wsa!:   //each month in saturday
 :2wsa:      //each two saturday, or 1 saturday yes 1 saturday no.
 15:1m:      //each 15 of each month.
 ```
@@ -120,3 +120,9 @@ also in the step part you can add a '[...]' at the end and inside put another da
 ```
 :1d[1wsa1wsu]:  //weekdays, without saturday or sunday.
 ```
+
+you can also specify multiples datetimes function separated with ';'
+
+# What more
+
+in the future I also want to implement a way inside the datetime function to reference to dates or other Todo items. that way allowing do something like, specify a reminder everyday except when it coincide with a todo item with an \_ev tag and holiday tag.
