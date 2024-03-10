@@ -202,3 +202,5 @@ the built-in tags are:
 \_nrm or \_noreminder (=;) specify datetimes to exclude to the reminder.
 
 \_adj or \_adjunt (=) specify a text with a reference format separated with ; of files to adjunts, it append on repeat.
+
+\_ev or \_event (no values) indicates that the todo is an event like todo. that means that the reminder will be efective even when the todo was marked as completed.
