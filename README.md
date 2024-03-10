@@ -21,9 +21,9 @@ I also want to make this specification as easy and human possible being able to 
 
 # Specifications
 
-- (Todo specs)[specs/todo.md]
-- (Directory and references)[specs/directory structure and references.md]
-- (datetime and datetime functions format)[specs/datetime and datetimes functions format.md]
+- [Todo specs](specs/todo.md)
+- [Directory and references](specs/directory structure and references.md)
+- [datetime and datetime functions format](specs/datetime and datetimes functions format.md)
 
 # Feedback and roadmap
 
@@ -37,4 +37,4 @@ I am going to work in this project in my free time. so the development could not
 
 # Credits
 
-My name is Jimy Aguasviva from Dominican Republic. and I am already finding job my linkedin is (HERE)[https://www.linkedin.com/in/jimy-aguasviva-781b32200/]
+My name is Jimy Aguasviva from Dominican Republic. and I am already finding job my linkedin is [HERE](https://www.linkedin.com/in/jimy-aguasviva-781b32200/)
